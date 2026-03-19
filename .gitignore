@@ -1,0 +1,10 @@
+Linux_x86_64/
+nvhpc_*/
+*.tar.gz
+output/
+__pycache__/
+.ipynb_checkpoints/
+sbd_source/app/diag
+sbd_source/app/main.o
+*.fcidump.bin
+modulefiles/

@@ -1,0 +1,15 @@
+# Path to SBD header-only library
+SBD_PATH=..
+
+# MPI C++ compiler (provided by NVHPC SDK)
+CCCOM=mpicxx
+
+# GPU build flags — change cc80 to match your GPU:
+#   cc70 = V100, cc80 = A100, cc89 = RTX 4080/4090, cc90 = H200
+#Note if using NVHPC 26.1 cc70 flag is not supported
+CCFLAGS= -mp -cuda -O2 -gpu=cc90 -DSBD_THRUST
+
+# LAPACK/BLAS (bundled with NVHPC — set NVHPC_ROOT to your install path)
+# e.g. NVHPC_ROOT=/opt/nvidia/hpc_sdk/Linux_x86_64/25.1
+NVHPC_ROOT=/mnt/ffs24/home/rowlan91/ben/f14_example/Linux_x86_64/25.1
+SYSLIB= -L$(NVHPC_ROOT)/compilers/lib -llapack_lp64 -lblas_lp64
